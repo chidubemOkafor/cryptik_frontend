@@ -1,4 +1,5 @@
 import React from "react";
+import {AiOutlineWallet} from "react-icons/ai"
 const hover = ""
 const Navbar = () => {
     return(
@@ -10,8 +11,15 @@ const Navbar = () => {
         <span>about</span>
       </nav>
     </div>
+    <div>
+   
+    </div>
+    <div className="flex text-white items-center pt-5 gap-2">
+    <button className="text-green-400  font-bold">Connect</button>
+      <AiOutlineWallet className="w-6 h-6"/>
+      
+    </div>
     
-    <button className="text-green-400 pt-5 font-bold">Connect</button>
   </div>)
  
     }; 
