@@ -8,8 +8,8 @@ return (
    <div className="flex justify absolute">
     <div className="bg-green-300 border-2 p-2">
     <h1>select a token</h1>
-    <div className={style} onClick={setToken(ETH)}><div className="bg-green-600 h-7 w-7 rounded-full "/>ETH</div>
-    <div className={style} onClick={setToken(WETH)}><div className="bg-green-600 h-7 w-7 rounded-full "/>WETH</div>
+    <div className={style} onClick={setToken()}><div className="bg-green-600 h-7 w-7 rounded-full "/>ETH</div>
+    <div className={style} onClick={setToken()}><div className="bg-green-600 h-7 w-7 rounded-full "/>WETH</div>
     </div>
    </div>
 )

@@ -12,7 +12,6 @@ const Main = () => {
     const [selToken, setSelToken] = useState(false);
     const openToken = () =>  setSelToken(!selToken)
     
-    
     // state hooks
     const [priceA, setPriceA] = useState("")
     const [priceB, setPriceB] = useState("")
@@ -29,14 +28,9 @@ const Main = () => {
     const isConnected = Boolean(accounts[0])
     const web3Testnet = new Web3("https://goerli.infura.io/v3/4eed25b0bc4342529e3e61363f2d8d1a") 
 
-
     // functions
     //for setting the token
     const setToken = (name) =>  name
-
-
-
-
 
     const toggleSettings = () =>  setOpenSettings(!openSettings)
 
@@ -93,7 +87,7 @@ const Main = () => {
         <div className="flex flex-col gap-1 p-2 justify-center items-center">
             <div className="p-2 hover:border-2 border border-green-300 bg-green-300 rounded-md h-20">
                     <div className="flex justify-between items-center px-2">
-                    <input onChange={changeValA} value={priceA} className="outline-none bg-green-300 h-10 text-3xl w-[8.2em]" type="number"  style={{ appearance: "textfield", MozAppearance: "textfield" }}/>
+                    <input onChange={changeValA} value={priceA} className="outline-none bg-green-300 h-10 text-3xl w-[8.2em] appearance-none" type="number" min="0" max="100000" style={{ appearance: "textfield", MozAppearance: "textfield" }}/>
                 <div className="bg-green-400 p-2 rounded-full flex gap-2 font-bold cursor-pointer" onClick={openToken}><div className="bg-green-600 h-7 w-7 rounded-full "/>{coin}</div>
                     </div>
                     <div className="flex justify-between px-2"><div className="font-bold">{priceB * 2262}</div>
@@ -104,15 +98,17 @@ const Main = () => {
                 <BsArrowDownSquareFill className="mb-[3.8em] h-8 w-8 border-2 absolute border-green-400 rounded-md hover:text-gray-800 bg-green-300"/>
             <div className="p-2 hover:border-2 border border-green-300 border-2 border-black bg-green-300 rounded-md h-20">
                     <div className="flex justify-between items-center px-2">
-                    <input onChange={changeValB} value={priceB} className="outline-none bg-green-300 h-10 text-3xl w-[8.2em]" type="number"  style={{ appearance: "textfield", MozAppearance: "textfield" }}/>
+                    <input onChange={changeValB} value={priceB} className="outline-none bg-green-300 h-10 text-3xl w-[8.2em] appearance-none" type="number" min="0" max="100000" style={{ "-moz-appearance": "textfield", "-webkit-appearance": "textfield" }}/>
                     <div className="bg-green-400 p-2 rounded-full flex gap-2 font-bold cursor-pointer"><div className="bg-green-600 h-7 w-7 rounded-full"/>ETH</div>
                     </div>
                     <div className="flex justify-between px-2"><div className="font-bold">{priceB * 2262}</div>
-                <div>Balance: {balanceB }</div>
+                <div>Balance: {balanceB}</div>
             </div>
                 
             </div>
-                <button className="font-bold border border-black bold bg-gradient-to-r from-black via-gray-900 to-green-500 text-2xl h-auto text-green-300 rounded-md  px-[3.9em] py-3" onClick={connectToMetamask}>{isConnected ? <p>swap</p> : <p>Connect Wallet</p>}</button>
+                <button className="font-bold border border-black bold bg-gradient-to-r from-black via-gray-900 to-green-500 text-2xl h-auto text-green-300 rounded-md  px-[3.9em] py-3" onClick={connectToMetamask}>
+                {isConnected ? <p>swap</p> : <p>Connect Wallet</p>}
+                </button>
         </div>
         </div>
     </div>
