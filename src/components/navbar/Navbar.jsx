@@ -1,13 +1,15 @@
 import React from "react";
 import {AiOutlineWallet} from "react-icons/ai"
-const hover = ""
+import {Link} from "react-router-dom"
+import Pool from "../navbar/Pool"
+
 const Navbar = () => {
     return(
-         <div className=" flex items-center justify-center bg-black gap-10 w-screen overflow-y-hidden pb-5">
+         <div className=" flex items-center justify-center bg-black gap-10 w-screen overflow-hidden pb-5">
     <div className="bg-green-400 p-4 rounded-full font-bold mt-5">
       <nav className="flex gap-6 text-xl">
-        <span className={hover}>swap</span>
-        <span>pool</span>
+        <span className="cursor-pointer"><Link to="/">swap</Link></span>
+        <span className="cursor-pointer"><Link to="Pool">pool</Link></span>
         <span>about</span>
       </nav>
     </div>

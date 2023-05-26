@@ -25,6 +25,7 @@ const Main = () => {
     const [coin, setCoin] =useState("ETH")
     const [web3, setWeb3] = useState(null)
     const [provider, setProvider] = useState(null)
+    
     const isConnected = Boolean(accounts[0])
     const web3Testnet = new Web3("https://goerli.infura.io/v3/4eed25b0bc4342529e3e61363f2d8d1a") 
 
@@ -33,6 +34,7 @@ const Main = () => {
     const setToken = (name) =>  name
 
     const toggleSettings = () =>  setOpenSettings(!openSettings)
+
 
     const connectToMetamask = async () => {
     if(typeof(Window.ethereum) != undefined) {
@@ -46,13 +48,14 @@ const Main = () => {
             //convert balance to eth
             const balanceInEth = parseFloat(web3Testnet.utils.fromWei(balance, "ether"))
             setBalanceA(balanceInEth.toFixed(6))
+    
         }
         catch(err) {
           console.log(err)
         }
+      }
     }
-
-    }
+   
 
     return ( 
        

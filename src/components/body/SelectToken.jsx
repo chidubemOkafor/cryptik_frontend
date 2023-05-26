@@ -5,11 +5,11 @@ const SelectToken = ({setToken}) => {
    
 
 return (
-   <div className="flex justify absolute">
+   <div className="flex justify-center rounded-full absolute pl-[6em]">
     <div className="bg-green-300 border-2 p-2">
-    <h1>select a token</h1>
-    <div className={style} onClick={setToken()}><div className="bg-green-600 h-7 w-7 rounded-full "/>ETH</div>
-    <div className={style} onClick={setToken()}><div className="bg-green-600 h-7 w-7 rounded-full "/>WETH</div>
+    <h1 className="font-bold text-2xl">select a token</h1>
+    <div><div className="bg-green-600 h-7 w-7 rounded-full "/>ETH</div>
+    <div><div className="bg-green-600 h-7 w-7 rounded-full "/>WETH</div>
     </div>
    </div>
 )
