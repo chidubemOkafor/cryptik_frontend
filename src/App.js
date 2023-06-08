@@ -3,11 +3,13 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CreatePool from './components/body/CreatePool';
 import Main from "./components/body/Main";
 import Navbar from './components/navbar/Navbar';
+import ".././src/App.css"
 import Pool from './components/navbar/Pool';
 
 
 function App() {
   return (
+    <div className='App'>
     <Router>
       <Navbar/>
       <Routes>
@@ -16,6 +18,7 @@ function App() {
         <Route path="/CreatePool" element={<CreatePool/>}/>
       </Routes>
     </Router>
+    </div>
   );
 }
 

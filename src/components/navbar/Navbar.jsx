@@ -5,9 +5,9 @@ import Pool from "../navbar/Pool"
 
 const Navbar = () => {
     return(
-         <div className=" flex items-center justify-center bg-black gap-10 w-screen overflow-hidden pb-5">
-    <div className="bg-green-400 p-4 rounded-full font-bold mt-5">
-      <nav className="flex gap-6 text-xl">
+    <div className="relative flex items-center justify-center bg-black gap-10 w-screen overflow-hidden pb-5">
+      <div className="border border-gray-200 p-4 rounded-md font-bold mt-5">
+        <nav className="flex gap-6 text-green-400 text-xl">
         <span className="cursor-pointer"><Link to="/">swap</Link></span>
         <span className="cursor-pointer"><Link to="Pool">pool</Link></span>
         <span>about</span>
