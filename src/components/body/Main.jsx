@@ -7,7 +7,10 @@ import SelectTokenB from "../settingToken/SelectTokenB"
 import Web3 from "web3"
 import { tokens } from "../settingToken/tokens/tokens";
 import erc20abi from "./abi/ERC20ABI.json"
-const Main = () => {
+import beornirkswapabi from "./abi/BEONIRKSWAPPABI.json"
+
+
+const Main = ({accounts,setAccounts, isConnected, web3Provider}) => {
     // toggle 
     const [openSettings, setOpenSettings] = useState(false);
 
@@ -23,24 +26,22 @@ const Main = () => {
     
     // state hooks
     const [priceA, setPriceA] = useState("")
-    const [priceB, setPriceB] = useState("")
-    const [balanceA, setBalanceA] = useState("")
+    const [priceB, setPriceB] = useState()
+    const [balanceA, setBalanceA] = useState()
     const [ethBalance, setEthBalance] = useState('')
     const [balanceB, setBalanceB] = useState("")
     
     const changeValA=(event)=> {setPriceA(event.target.value)}
     const changeValB=(event) => {setPriceB(event.target.value)}
-    const web3Provider = ("https://goerli.infura.io/v3/4eed25b0bc4342529e3e61363f2d8d1a")
-
+    
     // for connecting to wallet
-    const [accounts, setAccounts] = useState([])
     const [coin1, setCoin1] = useState("ETH")
     const [coin2, setCoin2] = useState("WETH")
  
     const [web3, setWeb3] = useState(null)
   
     
-    const isConnected = Boolean(accounts[0])
+    isConnected = Boolean(accounts[0])
     const web3Testnet = new Web3(web3Provider) 
 
     // functions
@@ -118,7 +119,7 @@ const Main = () => {
                     <input onChange={changeValA} value={priceA} className="outline-none bg-green-300 h-10 text-3xl w-[7.3em] appearance-none" type="number" min="0" max="100000" style={{ appearance: "textfield", MozAppearance: "textfield" }}/>
                 <div className="bg-green-400 p-2 rounded-full flex gap-2 font-bold cursor-pointer w-[6.7em]" onClick={openTokenA}><div className="bg-green-600 h-7 w-7 rounded-full "/>{coin1}</div>
                     </div>
-                    <div className="flex justify-between px-2"><div className="font-bold">{priceB * 2262}</div>
+                    <div className="flex justify-between px-2"><div className="font-bold">{priceB}</div>
                 <div>Balance: {balanceA}</div>
             </div>
               
@@ -129,7 +130,7 @@ const Main = () => {
                     <input onChange={changeValB} value={priceB} className="outline-none bg-green-300 h-10 text-3xl w-[7.2em] appearance-none" type="number" min="0" max="100000" style={{ "-moz-appearance": "textfield", "-webkit-appearance": "textfield" }}/>
                     <div className="bg-green-400 p-2 rounded-full flex gap-2 font-bold cursor-pointer w-[6.7em]" onClick={openTokenB}><div className="bg-green-600 h-7 w-7 rounded-full"/>{coin2}</div>
                     </div>
-                    <div className="flex justify-between px-2"><div className="font-bold">{priceB * 2262}</div>
+                    <div className="flex justify-between px-2"><div className="font-bold">{priceB}</div>
                 <div>Balance: {balanceB}</div>
             </div>
                 

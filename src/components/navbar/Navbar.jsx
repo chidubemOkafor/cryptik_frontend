@@ -2,8 +2,26 @@ import React from "react";
 import {AiOutlineWallet} from "react-icons/ai"
 import {Link} from "react-router-dom"
 import Pool from "../navbar/Pool"
+import Web3 from "web3"
 
-const Navbar = () => {
+const Navbar = ({accounts, setAccounts}) => {
+
+  const connectToMetamask = async () => {
+    if(typeof(Window.ethereum) != undefined) {
+      
+        try{
+            await window.ethereum.request({ method: 'eth_requestAccounts' });
+            const web3Instance = new Web3(window.ethereum);
+            const accounts = await web3Instance.eth.getAccounts();
+            setAccounts(accounts);
+        }
+     
+        catch(err) {
+          console.log(err)
+        }
+      }
+    }
+
     return(
     <div className="relative flex items-center justify-center bg-black gap-10 w-screen overflow-hidden pb-5">
       <div className="border border-gray-200 p-4 rounded-md font-bold mt-5">
@@ -24,6 +42,7 @@ const Navbar = () => {
     
   </div>)
  
-    }; 
+  }
+
 
 export default Navbar;
